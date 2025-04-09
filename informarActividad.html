@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Actividad</title>
+    <link rel="stylesheet" href="./assets/css/informarActividad.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap" rel="stylesheet">
+    <script src="assets/JavaScript/region_comuna.js" defer></script>
+    <script src="assets/JavaScript/validaciones.js" defer></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Actividades Barrio Matta</h1>
+        <h2>Cuentanos que actividad tienes pensada para la comunidad</h2>
+        <a class="navbar-page" href="informarActividad.html">Agregar Actividad</a>
+        <a class="navbar-page" href="portada.html">Ver Actividades Disponibles</a>
+    </div>
+    <!-- Formulario para informar actividad -->
+    <form id="informarLugar" action="#" method="post">
+
+        <!-- Información del lugar -->
+        <fieldset>
+            <legend>Información del Lugar</legend>
+            <label for="region">Región:</label>
+            <select id="region" name="region" required>
+                <option value="">Selecciona una región</option>
+            </select>
+            <br>
+            <label for="comuna">Comuna:</label>
+            <select id="comuna" name="comuna" required disabled>
+                <option value="">Selecciona una comuna</option>
+            </select>
+            <br>
+            <label for="sector">Sector:</label>
+            <input type="text" id="sector" name="sector" maxlength="100" pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ0-9\s]+" title="Solo letras y números">
+        </fieldset>
+        <!-- Datos del organizador -->
+        <fieldset>
+            <legend>Datos del Organizador</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" maxlength="200" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" maxlength="100" required>
+            <br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" pattern="^\+\d{3}\.\d{8}$" placeholder="+569.12345678" required>
+            <br>
+            <label for="contactar" >Contactar a:</label>
+            <select id="contactar" name="contactar[]" multiple>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="telegram">Telegram</option>
+                <option value="x">X</option>
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="otra">Otra</option>
+            </select>
+            <div id="contactarInputsContainer" style="margin-top: 10px;">
+        </fieldset>
+
+        <!--Cuando y de que trata-->
+        <fieldset>
+            <legend>¿Cuándo y de qué trata?</legend>
+            <label for="dia_hora_inicio">Día y Hora de Inicio:</label>
+            <input type="datetime-local" id="dia_hora_inicio" name="dia_hora_inicio" required>
+            <br>
+            <label for="dia_hora_termino">Día y Hora de Término:</label>
+            <input type="datetime-local" id="dia_hora_termino" name="dia_hora_termino">
+            <br>
+            <label for="actividad">Descripción de la Actividad:</label>
+            <textarea id="actividad" name="actividad" rows="10" cols="50" maxlength="500"></textarea>
+            <br>
+            <label for="tema" >Temática:</label>
+            <select id="tema" name="tema" multiple required>
+                <option value="musica">Música</option>
+                <option value="deporte">Deporte</option>
+                <option value="ciencias">Ciencias</option>
+                <option value="religion">Religión</option>
+                <option value="politica">Política</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="juegos">Juegos</option>
+                <option value="baile">Baile</option>
+                <option value="comida">Comida</option>
+                <option value="otro">Otro</option>
+            </select>
+            <div id="otroTemaContainer" style="display: none; margin-top: 10px;">
+                <label for="otroTemaInput">Especificar otro tema:</label>
+                <input type="text" id="otroTemaInput" name="otroTema" minlength="3" maxlength="15">
+            </div>
+            <br>
+            <label for="imagen">Foto</label>
+            <input type="file" id="imagen" name="imagen[]" accept=".jpg,.jpeg,.png" multiple>
+        </fieldset>
+        
+        <!-- Mensajes de validación -->
+        <div id="validationBox" hidden>
+            <p id="validationMessage"></p>
+            <ul id="validationList"></ul>
+        </div>
+        
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+  

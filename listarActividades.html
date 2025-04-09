@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Actividades - Barrio Matta</title>
+    <link rel="stylesheet" href="./assets/css/portada.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Actividades Barrio Matta</h1>
+        <h2>Listado de actividades disponibles</h2>
+        <a class="navbar-page" href="informarActividad.html">Agregar Actividad</a>
+        <a class="navbar-page" href="portada.html">Ver Actividades Disponibles</a>
+        <a class="navbar-page" href="estadisticas.html">Estadísticas</a>
+    </div>
+
+    <div class="container">
+        <table id="activitiesTable">
+            <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Término</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Tema</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos se cargarán con JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para mostrar detalles -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+            <div class="modal-buttons">
+                <button id="backToList">Volver al listado</button>
+                <button id="backToHome">Volver a portada</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar foto ampliada -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="expandedImg">
+        <div id="imgCaption"></div>
+    </div>
+
+    <script src="assets/JavaScript/listado.js"></script>
+</body>
+</html>
