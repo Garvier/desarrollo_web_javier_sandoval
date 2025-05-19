@@ -1,0 +1,185 @@
+:root {
+  --black-color: #000022;
+  --background-color: #E8E6F0;
+  --pink-color: #FC2865;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--background-color);
+}
+
+/* NAV BAR */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border: 0.2em solid var(--black-color);
+  border-radius: 0.25em;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0.3em 0.3em 0 black;
+}
+
+.navbar h1 {
+  font-family: "Fira Code", monospace;
+  margin: 0.2em 0;
+  text-align: center;
+}
+
+.navbar h2 {
+  margin: 0.2em 0 1em 0;
+  text-align: center;
+  font-weight: normal;
+}
+
+.botonera {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+
+.navbar-page {
+  position: relative;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--black-color);
+  border: 0.15em solid var(--black-color);
+  border-radius: 0.3em;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
+}
+
+.navbar-page:hover {
+  background-color: var(--pink-color);
+  color: white;
+}
+
+.navbar-page::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.175em;
+  background: var(--black-color);
+  left: 0;
+  bottom: 0;
+  transform: scale(0, 1);
+  transition: transform 0.3s ease;
+}
+
+.navbar-page:hover::after {
+  transform: scale(1, 1);
+}
+
+/* FORMULARIO */
+
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="datetime-local"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+input[type="submit"],
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: var(--pink-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #fb5685;
+}
+
+/* validación y mensajes */
+#validationBox {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+#confirmationBox {
+  background-color: #ddffdd;
+  border: 1px solid #4CAF50;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+  font-weight: bold;
+  display: none;
+  text-align: center;
+}
+
+#confirmationBox button {
+  width: auto;
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+#validationList {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+#otroTemaContainer {
+  margin-top: 10px;
+}

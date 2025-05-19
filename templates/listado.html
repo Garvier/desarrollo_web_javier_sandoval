@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Actividades</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/portada.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <h1>Centro de Eventos Oli</h1>
+        <h2>Revisa las diversas actividades comunitarias que tenemos para ti</h2>
+        <div class="botonera">
+            <a class="navbar-page" href="{{ url_for('portada') }}">Inicio</a>
+            <a class="navbar-page" href="{{ url_for('informar') }}">Agregar Actividad</a>
+            <a class="navbar-page" href="{{ url_for('listado') }}">Ver Actividades Disponibles</a>
+            <a class="navbar-page" href="{{ url_for('estadisticas') }}">Ver Estadísticas</a>
+        </div>
+    </div>
+
+    <div class="contenedor-actividades">
+        <h3>Listado completo de actividades</h3>
+
+        {% if actividades %}
+        <table class="tabla-actividades">
+            <thead>
+                <tr>
+                    <th>Inicio</th>
+                    <th>Término</th>
+                    <th>Comuna</th>
+                    <th>Sector</th>
+                    <th>Tema</th>
+                    <th>Organizador</th>
+                    <th>Total Fotos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in actividades %}
+                <tr>
+                    <td>{{ a.actividad.dia_hora_inicio.strftime("%Y-%m-%d %H:%M") }}</td>
+                    <td>
+                        {% if a.actividad.dia_hora_termino %}
+                            {{ a.actividad.dia_hora_termino.strftime("%Y-%m-%d %H:%M") }}
+                        {% endif %}
+                    </td>
+                    <td>{{ a.comuna.nombre }}</td>
+                    <td>{{ a.actividad.sector }}</td>
+                    <td>
+                        {% for t in a.temas %}
+                            {{ t.tema.value }}{% if t.tema.value == 'otro' and t.glosa_otro %} ({{ t.glosa_otro }}){% endif %}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ a.actividad.nombre_organizador }}</td>
+                    <td>
+                      {% if a.fotos %}
+                        <img src="{{ url_for('static', filename=a.fotos[0].ruta_archivo) }}"
+                             alt="Foto actividad"
+                             class="foto-miniatura">
+                      {% else %}
+                        Sin foto
+                      {% endif %}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No hay actividades registradas.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

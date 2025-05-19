@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estadísticas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/portada.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estadisticas.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>Centro de Eventos Oli</h1>
+    <h2>Revisa las diversas actividades comunitarias que tenemos para ti</h2>
+    <div class="botonera">
+            <a class="navbar-page" href="{{ url_for('portada') }}">Inicio</a>
+            <a class="navbar-page" href="{{ url_for('informar') }}">Agregar Actividad</a>
+            <a class="navbar-page" href="{{ url_for('listado') }}">Ver Actividades Disponibles</a>
+            <a class="navbar-page" href="{{ url_for('estadisticas') }}">Ver Estadísticas</a>
+    </div>
+  </div>
+
+  <div class="contenedor-graficos">
+    <div class="grafico-card">
+      <img src="{{ url_for('static', filename=paths.actividades_por_fecha) }}" alt="Gráfico líneas">
+    </div>
+
+    <div class="grafico-card">
+      <img src="{{ url_for('static', filename=paths.actividades_por_tipo) }}" alt="Gráfico torta">
+    </div>
+
+    <div class="grafico-card">
+      <img src="{{ url_for('static', filename=paths.actividades_por_hora) }}" alt="Gráfico barras">
+    </div>
+  </div>
+
+
+</body>
+</html>
